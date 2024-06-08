@@ -1,0 +1,495 @@
+#prefetch处理记录
+2024-06-04T01:33:54 prefetch.2.11.3: Current preference is set to retrieve SRA Normalized Format files with full base quality scores.
+2024-06-04T01:33:55 prefetch.2.11.3: 1) Downloading 'SRR2176358'...
+2024-06-04T01:33:56 prefetch.2.11.3: SRA Normalized Format file is being retrieved, if this is different from your preference, it may be due to current file availability.
+2024-06-04T01:33:57 prefetch.2.11.3:  Downloading via HTTPS...
+2024-06-04T01:40:21 prefetch.2.11.3:  HTTPS download succeed
+2024-06-04T01:40:22 prefetch.2.11.3:  'SRR2176358' is valid
+2024-06-04T01:40:23 prefetch.2.11.3: 1) 'SRR2176358' was downloaded successfully
+...
+2024-06-04T02:42:48 prefetch.2.11.3: Current preference is set to retrieve SRA Normalized Format files with full base quality scores.
+2024-06-04T02:42:49 prefetch.2.11.3: 24) Downloading 'SRR2176381'...
+2024-06-04T02:42:49 prefetch.2.11.3: SRA Normalized Format file is being retrieved, if this is different from your preference, it may be due to current file availability.
+2024-06-04T02:42:49 prefetch.2.11.3:  Downloading via HTTPS...
+2024-06-04T02:44:46 prefetch.2.11.3:  HTTPS download succeed
+2024-06-04T02:44:48 prefetch.2.11.3:  'SRR2176381' is valid
+2024-06-04T02:44:48 prefetch.2.11.3: 24) 'SRR2176381' was downloaded successfully
+2024-06-04T02:44:48 prefetch.2.11.3 warn: libs/vfs/resolver.c:2328:VResolverAlgCacheResolve: name not found while resolving tree within virtual file system module - libs/vfs/resolver.c:3403 within VResolverLocalResolve
+2024-06-04T02:44:48 prefetch.2.11.3 warn: libs/vfs/resolver.c:2328:VResolverAlgCacheResolve: name not found while resolving tree within virtual file system module - libs/vfs/resolver.c:2328 within VResolverAlgCacheResolve
+2024-06-04T02:44:48 prefetch.2.11.3 warn: libs/vfs/resolver.c:2328:VResolverAlgCacheResolve: name not found while resolving tree within virtual file system module - libs/vfs/resolver.c:2328 within VResolverAlgCacheResolve
+#fastq-dump处理记录
+Read 15774283 spots for SRR2176358/SRR2176358.sra
+Written 15774283 spots for SRR2176358/SRR2176358.sra
+...
+Read 12466234 spots for SRR2176381/SRR2176381.sra
+Written 12466234 spots for SRR2176381/SRR2176381.sra
+#fastp处理记录
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 15774283
+total bases: 1593202583
+Q20 bases: 1380483483(86.6483%)
+Q30 bases: 1297784422(81.4576%)
+
+Read1 after filtering:
+total reads: 14255558
+total bases: 1439811358
+Q20 bases: 1343966097(93.3432%)
+Q30 bases: 1272724094(88.3952%)
+
+Filtering result:
+reads passed filter: 14255558
+reads failed due to low quality: 1506579
+reads failed due to too many N: 12146
+reads failed due to too short: 0
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 30.7888%
+
+JSON report: SRR2176358/SRR2176358.json
+HTML report: SRR2176358/SRR2176358.html
+
+fastp -i SRR2176358/SRR2176358.fastq.gz -o SRR2176358/SRR2176358.out.fastq.gz --json SRR2176358/SRR2176358.json --html SRR2176358/SRR2176358.html
+fastp v0.23.2, time used: 48 seconds
+...
+Detecting adapter sequence for read1...
+No adapter detected for read1
+
+Read1 before filtering:
+total reads: 12466234
+total bases: 1259089634
+Q20 bases: 1156158413(91.8249%)
+Q30 bases: 1102803334(87.5874%)
+
+Read1 after filtering:
+total reads: 11666174
+total bases: 1178283574
+Q20 bases: 1136350471(96.4412%)
+Q30 bases: 1089317909(92.4496%)
+
+Filtering result:
+reads passed filter: 11666174
+reads failed due to low quality: 795684
+reads failed due to too many N: 4376
+reads failed due to too short: 0
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate (may be overestimated since this is SE data): 46.6434%
+
+JSON report: SRR2176381/SRR2176381.json
+HTML report: SRR2176381/SRR2176381.html
+
+fastp -i SRR2176381/SRR2176381.fastq.gz -o SRR2176381/SRR2176381.out.fastq.gz --json SRR2176381/SRR2176381.json --html SRR2176381/SRR2176381.html
+fastp v0.23.2, time used: 38 seconds
+#hisat2-build处理记录
+Settings:
+  Output files: "ht2_files/HFTH1.*.ht2"
+  Line rate: 6 (line is 64 bytes)
+  Lines per side: 1 (side is 64 bytes)
+  Offset rate: 4 (one in 16)
+  FTable chars: 10
+  Strings: unpacked
+  Local offset rate: 3 (one in 8)
+  Local fTable chars: 6
+  Local sequence length: 57344
+  Local sequence overlap between two consecutive indexes: 1024
+  Endianness: little
+  Actual local endianness: little
+  Sanity checking: disabled
+  Assertions: disabled
+  Random seed: 0
+  Sizeofs: void*:8, int:4, long:8, size_t:8
+Input files DNA, FASTA:
+  GCA_004115385.1_ASM411538v1_genomic.fna
+Reading reference sizes
+  Time reading reference sizes: 00:00:04
+Calculating joined length
+Writing header
+Reserving space for joined string
+Joining reference sequences
+  Time to join reference sequences: 00:00:04
+  Time to read SNPs and splice sites: 00:00:00
+Using parameters --bmax 123543620 --dcv 1024
+  Doing ahead-of-time memory usage test
+  Passed!  Constructing with these parameters: --bmax 123543620 --dcv 1024
+Constructing suffix-array element generator
+Building DifferenceCoverSample
+  Building sPrime
+  Building sPrimeOrder
+  V-Sorting samples
+  V-Sorting samples time: 00:00:13
+  Allocating rank array
+  Ranking v-sort output
+  Ranking v-sort output time: 00:00:05
+  Invoking Larsson-Sadakane on ranks
+  Invoking Larsson-Sadakane on ranks time: 00:00:05
+  Sanity-checking and returning
+Building samples
+Reserving space for 12 sample suffixes
+Generating random suffixes
+QSorting 12 sample offsets, eliminating duplicates
+QSorting sample offsets, eliminating duplicates time: 00:00:00
+Multikey QSorting 12 samples
+  (Using difference cover)
+  Multikey QSorting samples time: 00:00:00
+Calculating bucket sizes
+Splitting and merging
+  Splitting and merging time: 00:00:00
+Avg bucket size: 9.41285e+07 (target: 123543619)
+Converting suffix-array elements to index image
+Allocating ftab, absorbFtab
+Entering GFM loop
+Getting block 1 of 7
+  Reserving size (123543620) for bucket 1
+  Calculating Z arrays for bucket 1
+  Entering block accumulator loop for bucket 1:
+  bucket 1: 10%
+  bucket 1: 20%
+  bucket 1: 30%
+  bucket 1: 40%
+  bucket 1: 50%
+  bucket 1: 60%
+  bucket 1: 70%
+  bucket 1: 80%
+  bucket 1: 90%
+  bucket 1: 100%
+  Sorting block of length 113742285 for bucket 1
+  (Using difference cover)
+  Sorting block time: 00:00:38
+Returning block of 113742286 for bucket 1
+...
+Getting block 7 of 7
+  Reserving size (123543620) for bucket 7
+  Calculating Z arrays for bucket 7
+  Entering block accumulator loop for bucket 7:
+  bucket 7: 10%
+  bucket 7: 20%
+  bucket 7: 30%
+  bucket 7: 40%
+  bucket 7: 50%
+  bucket 7: 60%
+  bucket 7: 70%
+  bucket 7: 80%
+  bucket 7: 90%
+  bucket 7: 100%
+  Sorting block of length 37400735 for bucket 7
+  (Using difference cover)
+  Sorting block time: 00:00:12
+Returning block of 37400736 for bucket 7
+Exited GFM loop
+fchr[A]: 0
+fchr[C]: 204025854
+fchr[G]: 329513439
+fchr[T]: 454974258
+fchr[$]: 658899306
+Exiting GFM::buildToDisk()
+Returning from initFromVector
+Wrote 223865393 bytes to primary GFM file: ht2_files/HFTH1.1.ht2
+Wrote 164724832 bytes to secondary GFM file: ht2_files/HFTH1.2.ht2
+Re-opening _in1 and _in2 as input streams
+Returning from GFM constructor
+Returning from initFromVector
+Wrote 290799951 bytes to primary GFM file: ht2_files/HFTH1.5.ht2
+Wrote 167706148 bytes to secondary GFM file: ht2_files/HFTH1.6.ht2
+Re-opening _in5 and _in5 as input streams
+Returning from HGFM constructor
+Headers:
+    len: 658899306
+    gbwtLen: 658899307
+    nodes: 658899307
+    sz: 164724827
+    gbwtSz: 164724827
+    lineRate: 6
+    offRate: 4
+    offMask: 0xfffffff0
+    ftabChars: 10
+    eftabLen: 0
+    eftabSz: 0
+    ftabLen: 1048577
+    ftabSz: 4194308
+    offsLen: 41181207
+    offsSz: 164724828
+    lineSz: 64
+    sideSz: 64
+    sideGbwtSz: 48
+    sideGbwtLen: 192
+    numSides: 3431768
+    numLines: 3431768
+    gbwtTotLen: 219633152
+    gbwtTotSz: 219633152
+    reverse: 0
+    linearFM: Yes
+Total time for call to driver() for forward index: 00:07:49
+#hisat2处理记录
+14255558 reads; of these:
+  14255558 (100.00%) were unpaired; of these:
+    2602923 (18.26%) aligned 0 times
+    10763946 (75.51%) aligned exactly 1 time
+    888689 (6.23%) aligned >1 times
+81.74% overall alignment rate
+15435756 reads; of these:
+  15435756 (100.00%) were unpaired; of these:
+    2130633 (13.80%) aligned 0 times
+    12442032 (80.61%) aligned exactly 1 time
+    863091 (5.59%) aligned >1 times
+86.20% overall alignment rate
+15218630 reads; of these:
+  15218630 (100.00%) were unpaired; of these:
+    2461643 (16.18%) aligned 0 times
+    12218385 (80.29%) aligned exactly 1 time
+    538602 (3.54%) aligned >1 times
+83.82% overall alignment rate
+14513221 reads; of these:
+  14513221 (100.00%) were unpaired; of these:
+    2694465 (18.57%) aligned 0 times
+    11091192 (76.42%) aligned exactly 1 time
+    727564 (5.01%) aligned >1 times
+81.43% overall alignment rate
+14475858 reads; of these:
+  14475858 (100.00%) were unpaired; of these:
+    2265262 (15.65%) aligned 0 times
+    11127491 (76.87%) aligned exactly 1 time
+    1083105 (7.48%) aligned >1 times
+84.35% overall alignment rate
+14022495 reads; of these:
+  14022495 (100.00%) were unpaired; of these:
+    2416665 (17.23%) aligned 0 times
+    11116398 (79.28%) aligned exactly 1 time
+    489432 (3.49%) aligned >1 times
+82.77% overall alignment rate
+20144366 reads; of these:
+  20144366 (100.00%) were unpaired; of these:
+    3662561 (18.18%) aligned 0 times
+    12006338 (59.60%) aligned exactly 1 time
+    4475467 (22.22%) aligned >1 times
+81.82% overall alignment rate
+14659233 reads; of these:
+  14659233 (100.00%) were unpaired; of these:
+    2961389 (20.20%) aligned 0 times
+    9635442 (65.73%) aligned exactly 1 time
+    2062402 (14.07%) aligned >1 times
+79.80% overall alignment rate
+13466055 reads; of these:
+  13466055 (100.00%) were unpaired; of these:
+    2399910 (17.82%) aligned 0 times
+    10424340 (77.41%) aligned exactly 1 time
+    641805 (4.77%) aligned >1 times
+82.18% overall alignment rate
+11425487 reads; of these:
+  11425487 (100.00%) were unpaired; of these:
+    2063059 (18.06%) aligned 0 times
+    7908141 (69.21%) aligned exactly 1 time
+    1454287 (12.73%) aligned >1 times
+81.94% overall alignment rate
+11015423 reads; of these:
+  11015423 (100.00%) were unpaired; of these:
+    2331014 (21.16%) aligned 0 times
+    7699027 (69.89%) aligned exactly 1 time
+    985382 (8.95%) aligned >1 times
+78.84% overall alignment rate
+11026881 reads; of these:
+  11026881 (100.00%) were unpaired; of these:
+    2534862 (22.99%) aligned 0 times
+    8067099 (73.16%) aligned exactly 1 time
+    424920 (3.85%) aligned >1 times
+77.01% overall alignment rate
+11649173 reads; of these:
+  11649173 (100.00%) were unpaired; of these:
+    1213685 (10.42%) aligned 0 times
+    9602273 (82.43%) aligned exactly 1 time
+    833215 (7.15%) aligned >1 times
+89.58% overall alignment rate
+13703775 reads; of these:
+  13703775 (100.00%) were unpaired; of these:
+    1339322 (9.77%) aligned 0 times
+    10708995 (78.15%) aligned exactly 1 time
+    1655458 (12.08%) aligned >1 times
+90.23% overall alignment rate
+12045131 reads; of these:
+  12045131 (100.00%) were unpaired; of these:
+    1334196 (11.08%) aligned 0 times
+    8946626 (74.28%) aligned exactly 1 time
+    1764309 (14.65%) aligned >1 times
+88.92% overall alignment rate
+12045196 reads; of these:
+  12045196 (100.00%) were unpaired; of these:
+    1660883 (13.79%) aligned 0 times
+    9646624 (80.09%) aligned exactly 1 time
+    737689 (6.12%) aligned >1 times
+86.21% overall alignment rate
+15458224 reads; of these:
+  15458224 (100.00%) were unpaired; of these:
+    1384264 (8.95%) aligned 0 times
+    11948469 (77.30%) aligned exactly 1 time
+    2125491 (13.75%) aligned >1 times
+91.05% overall alignment rate
+16312963 reads; of these:
+  16312963 (100.00%) were unpaired; of these:
+    1427479 (8.75%) aligned 0 times
+    13438365 (82.38%) aligned exactly 1 time
+    1447119 (8.87%) aligned >1 times
+91.25% overall alignment rate
+9288789 reads; of these:
+  9288789 (100.00%) were unpaired; of these:
+    1220599 (13.14%) aligned 0 times
+    7488489 (80.62%) aligned exactly 1 time
+    579701 (6.24%) aligned >1 times
+86.86% overall alignment rate
+11450653 reads; of these:
+  11450653 (100.00%) were unpaired; of these:
+    1280359 (11.18%) aligned 0 times
+    9331398 (81.49%) aligned exactly 1 time
+    838896 (7.33%) aligned >1 times
+88.82% overall alignment rate
+13140861 reads; of these:
+  13140861 (100.00%) were unpaired; of these:
+    1987908 (15.13%) aligned 0 times
+    10017332 (76.23%) aligned exactly 1 time
+    1135621 (8.64%) aligned >1 times
+84.87% overall alignment rate
+16359912 reads; of these:
+  16359912 (100.00%) were unpaired; of these:
+    2204499 (13.48%) aligned 0 times
+    12626540 (77.18%) aligned exactly 1 time
+    1528873 (9.35%) aligned >1 times
+86.52% overall alignment rate
+12583446 reads; of these:
+  12583446 (100.00%) were unpaired; of these:
+    1590666 (12.64%) aligned 0 times
+    10299832 (81.85%) aligned exactly 1 time
+    692948 (5.51%) aligned >1 times
+87.36% overall alignment rate
+11666174 reads; of these:
+  11666174 (100.00%) were unpaired; of these:
+    1383650 (11.86%) aligned 0 times
+    9641547 (82.65%) aligned exactly 1 time
+    640977 (5.49%) aligned >1 times
+88.14% overall alignment rate
+#samtools处理记录
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 6 files and 1 in-memory blocks...
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 6 files and 1 in-memory blocks...
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 12 files and 1 in-memory blocks...
+[bam_sort_core] merging from 7 files and 1 in-memory blocks...
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 4 files and 1 in-memory blocks...
+[bam_sort_core] merging from 4 files and 1 in-memory blocks...
+[bam_sort_core] merging from 4 files and 1 in-memory blocks...
+[bam_sort_core] merging from 6 files and 1 in-memory blocks...
+[bam_sort_core] merging from 6 files and 1 in-memory blocks...
+[bam_sort_core] merging from 4 files and 1 in-memory blocks...
+[bam_sort_core] merging from 8 files and 1 in-memory blocks...
+[bam_sort_core] merging from 7 files and 1 in-memory blocks...
+[bam_sort_core] merging from 3 files and 1 in-memory blocks...
+[bam_sort_core] merging from 4 files and 1 in-memory blocks...
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 7 files and 1 in-memory blocks...
+[bam_sort_core] merging from 5 files and 1 in-memory blocks...
+[bam_sort_core] merging from 4 files and 1 in-memory blocks...
+#featureCounts处理记录
+
+        ==========     _____ _    _ ____  _____  ______          _____
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+          v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                           o SRR2176358.sort.bam                            ||
+||                                                                            ||
+||             Output file : SRR2176358.all.txt                               ||
+||                 Summary : SRR2176358.all.txt.summary                       ||
+||              Annotation : genomic.gtf (GTF)                                ||
+||      Dir for temp files : SRR2176358                                       ||
+||                                                                            ||
+||                 Threads : 1                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : no                                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file genomic.gtf ...                                       ||
+||    Features : 233215                                                       ||
+||    Meta-features : 42841                                                   ||
+||    Chromosomes/contigs : 207                                               ||
+||                                                                            ||
+|| Process BAM file SRR2176358.sort.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 16700047                                             ||
+||    Successfully assigned alignments : 8430573 (50.5%)                      ||
+||    Running time : 0.22 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "SRR2176358/SRR2176358.a  ||
+|| ll.txt.summary"                                                            ||
+||                                                                            ||
+\\============================================================================//
+...
+
+
+        ==========     _____ _    _ ____  _____  ______          _____
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+          v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                           o SRR2176381.sort.bam                            ||
+||                                                                            ||
+||             Output file : SRR2176381.all.txt                               ||
+||                 Summary : SRR2176381.all.txt.summary                       ||
+||              Annotation : genomic.gtf (GTF)                                ||
+||      Dir for temp files : SRR2176381                                       ||
+||                                                                            ||
+||                 Threads : 1                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : no                                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file genomic.gtf ...                                       ||
+||    Features : 233215                                                       ||
+||    Meta-features : 42841                                                   ||
+||    Chromosomes/contigs : 207                                               ||
+||                                                                            ||
+|| Process BAM file SRR2176381.sort.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 13090944                                             ||
+||    Successfully assigned alignments : 7243687 (55.3%)                      ||
+||    Running time : 0.16 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "SRR2176381/SRR2176381.a  ||
+|| ll.txt.summary"                                                            ||
+||                                                                            ||
+\\============================================================================//
